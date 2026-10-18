@@ -112,12 +112,12 @@ button{font:inherit;color:inherit}
 .sec-head p{margin-top:16px;font-size:17px;color:var(--sub)}
 @media (max-width:700px){.sec{padding-block:80px}}
 
-/* 이용자 후기 */
-.reviews{margin-top:56px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.reviews li{background:var(--card);border-radius:24px;padding:30px 28px;min-width:0;display:flex;flex-direction:column;box-shadow:0 1px 0 var(--line)}
-.reviews blockquote{margin:16px 0 0;font-size:16px;line-height:1.75;flex:1}
-.reviews .who-by{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);font-size:14px;font-weight:600;color:var(--sub)}
-@media (max-width:860px){.reviews{grid-template-columns:1fr}}
+/* 이용 사례 */
+.cases{margin-top:56px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.cases li{background:var(--band);border-radius:24px;padding:30px 28px;min-width:0;display:flex;flex-direction:column}
+.cases h3{margin-top:18px;font-size:19px;font-weight:800;letter-spacing:-.03em;line-height:1.4}
+.cases p{margin-top:10px;color:var(--sub);font-size:15.5px;line-height:1.75}
+@media (max-width:860px){.cases{grid-template-columns:1fr}}
 
 /* 소득 유형 태그 */
 .tag{display:inline-block;align-self:flex-start;font-size:13px;font-weight:700;color:var(--blue);background:var(--blue-wash);border-radius:999px;padding:5px 11px}
@@ -168,7 +168,7 @@ button{font:inherit;color:inherit}
 
 /* FAQ */
 .faq{max-width:780px;margin:48px auto 0}
-.faq details{background:var(--card);border-radius:18px;margin-bottom:10px;box-shadow:0 1px 0 var(--line)}
+.faq details{background:var(--band);border-radius:18px;margin-bottom:10px}
 .faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 24px;font-size:17px;font-weight:700;letter-spacing:-.02em}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary svg{width:22px;height:22px;flex-shrink:0;color:var(--faint);transition:transform .2s}
@@ -240,33 +240,6 @@ footer .copy{margin-top:16px}
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>세금을 자동으로 계산해서 보여줘요</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>지급명세서까지 함께 제출돼요</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>지금은 모든 것이 무료예요</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="sec" id="reviews">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="k">이용자 후기</p>
-        <h2>원천세 신고, 혼자서도 충분해요</h2>
-        <p>직접 해 본 사장님들의 이야기</p>
-      </div>
-      <ul class="reviews">
-        <li>
-          <span class="tag">사업소득 3.3%</span>
-          <blockquote>강사료 원천세 신고하려고 세무사 사무실에 맡기던 게 아까웠는데, 이제 혼자서 명단만 올리면 끝나서 수수료를 아꼈어요.</blockquote>
-          <p class="who-by">개인사업자 · 보습학원 원장</p>
-        </li>
-        <li>
-          <span class="tag">기타소득 8.8%</span>
-          <blockquote>원데이 클래스 사례비를 드릴 때마다 세율이 복잡하고 헷갈렸는데, 지급액만 넣으면 자동으로 계산돼서 이제는 혼자서도 실수 없이 신고해요.</blockquote>
-          <p class="who-by">개인사업자 · 카페 사장님</p>
-        </li>
-        <li>
-          <span class="tag">사업소득 3.3%</span>
-          <blockquote>세무 지식 없이 셀프 신고가 될까 걱정했는데, 화면 안내대로 따라가니 원천세 신고부터 지급명세서 제출까지 혼자 끝냈어요. 다음 달엔 더 빨리 끝날 것 같아요.</blockquote>
-          <p class="who-by">개인사업자 · 디자인 스튜디오 대표</p>
-        </li>
       </ul>
     </div>
   </section>
@@ -368,7 +341,34 @@ footer .copy{margin-top:16px}
     </div>
   </section>
 
-  <section class="sec" id="pricing">
+  <section class="sec" id="cases">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="k">이용 사례</p>
+        <h2>원천세 신고, 혼자서도 충분해요</h2>
+        <p>이런 상황이라면 원클릭 원천세로 직접 신고할 수 있어요.</p>
+      </div>
+      <ul class="cases">
+        <li>
+          <span class="tag">사업소득 3.3%</span>
+          <h3>보습학원 원장님이라면</h3>
+          <p>강사료 원천세를 세무사 사무실에 맡기고 있다면, 강사 명단만 올려 직접 신고하고 수수료를 아낄 수 있어요.</p>
+        </li>
+        <li>
+          <span class="tag">기타소득 8.8%</span>
+          <h3>원데이 클래스를 여는 카페 사장님이라면</h3>
+          <p>클래스 강사료를 줄 때마다 세율이 헷갈렸다면, 지급액만 넣으세요. 세금이 자동으로 계산돼요.</p>
+        </li>
+        <li>
+          <span class="tag">사업소득 3.3%</span>
+          <h3>디자인 스튜디오 대표님이라면</h3>
+          <p>세무 지식이 없어도 화면 안내를 따라가면 원천세 신고부터 간이지급명세서 제출까지 혼자 끝낼 수 있어요.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec band" id="pricing">
     <div class="wrap">
       <div class="sec-head">
         <p class="k">요금</p>
@@ -388,7 +388,7 @@ footer .copy{margin-top:16px}
     </div>
   </section>
 
-  <section class="sec band" id="faq">
+  <section class="sec" id="faq">
     <div class="wrap">
       <div class="sec-head">
         <p class="k">FAQ</p>
