@@ -77,9 +77,11 @@ button{font:inherit;color:inherit}
 .eyebrow{display:inline-block;font-size:14px;font-weight:700;color:var(--blue);background:var(--blue-wash);border-radius:999px;padding:7px 14px}
 .hero h1{margin-top:20px;font-size:clamp(38px,5.4vw,60px);font-weight:800;line-height:1.22;letter-spacing:-.045em}
 .hero .sub{margin-top:20px;font-size:clamp(17px,1.5vw,19px);color:var(--sub);line-height:1.7;max-width:30em}
-.hero .cta{margin-top:34px;display:flex;flex-wrap:wrap;gap:10px}
+/* 버튼 두 개를 같은 너비로: 넓은 쪽 글자 길이에 맞춤 */
+.cta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;width:fit-content}
+.hero .cta{margin-top:34px}
 .hero .fine{margin-top:16px;font-size:14px;color:var(--faint)}
-@media (max-width:480px){.hero .cta .btn{flex:1 1 100%}}
+@media (max-width:480px){.cta{grid-template-columns:1fr;width:100%}}
 .hero-art{width:100%;max-width:520px;min-width:0}
 
 /* 이미지 슬롯: images/ 폴더에 파일을 넣으면 그림이 보이고, 없으면 자리와 규격만 표시 */
@@ -177,7 +179,7 @@ button{font:inherit;color:inherit}
 .final{background:var(--blue);color:var(--on-blue);padding-block:100px;text-align:center}
 .final h2{font-size:clamp(30px,4.6vw,48px);font-weight:800;line-height:1.25;letter-spacing:-.045em}
 .final p{margin-top:16px;font-size:18px;opacity:.85}
-.final .cta{margin-top:34px;display:flex;justify-content:center;flex-wrap:wrap;gap:10px}
+.final .cta{margin:34px auto 0}
 .final .btn-line{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.5)}
 .final .btn-line:hover{background:rgba(255,255,255,.1)}
 
