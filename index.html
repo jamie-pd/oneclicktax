@@ -72,7 +72,7 @@ button{font:inherit;color:inherit}
 @media (max-width:860px){.menu{display:none}}
 
 /* hero */
-.hero{padding-block:72px 40px;overflow:hidden}
+.hero{padding-block:72px 96px;overflow:hidden}
 .hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,520px);gap:40px;align-items:center}
 .eyebrow{display:inline-block;font-size:14px;font-weight:700;color:var(--blue);background:var(--blue-wash);border-radius:999px;padding:7px 14px}
 .hero h1{margin-top:20px;font-size:clamp(38px,5.4vw,60px);font-weight:800;line-height:1.22;letter-spacing:-.045em}
@@ -92,16 +92,7 @@ button{font:inherit;color:inherit}
 .slot figcaption b{font-size:15px;color:var(--ink)}
 .slot figcaption span{font-variant-numeric:tabular-nums}
 .step-slot{border-radius:22px 22px 0 0;margin-top:24px;max-width:240px;margin-inline:auto;border-bottom:0}
-@media (max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:40px}.hero{padding-top:40px}.hero-art{justify-self:center}}
-
-/* 팩트 스트립 */
-.facts{padding-block:40px 0}
-.facts ul{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:20px;overflow:hidden}
-.facts li{padding:22px 24px;display:flex;align-items:center;gap:12px;font-weight:700;font-size:15.5px;letter-spacing:-.02em}
-.facts li + li{border-left:1px solid var(--line)}
-.facts svg{width:22px;height:22px;flex-shrink:0;color:var(--blue)}
-@media (max-width:900px){.facts ul{grid-template-columns:1fr 1fr}.facts li:nth-child(3){border-left:0}.facts li:nth-child(n+3){border-top:1px solid var(--line)}}
-@media (max-width:480px){.facts ul{grid-template-columns:1fr}.facts li{border-left:0!important}.facts li + li{border-top:1px solid var(--line)}}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:40px}.hero{padding-block:40px 72px}.hero-art{justify-self:center}}
 
 /* 섹션 */
 .sec{padding-block:110px}
@@ -230,17 +221,6 @@ footer .copy{margin-top:16px}
       </div>
 
       <div class="hero-art"><figure class="slot" style="--w:1040;--h:1120"><img src="images/hero.png" alt="원클릭 원천세 서비스 화면 미리보기" onerror="this.remove()"><figcaption><b>히어로 메인 이미지 (앱 화면 2개)</b><span>images/hero.png</span><span>1040 × 1120px</span></figcaption></figure></div>
-    </div>
-  </section>
-
-  <section class="facts">
-    <div class="wrap">
-      <ul>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>홈택스에 접속하지 않아도 돼요</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>세금을 자동으로 계산해서 보여줘요</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>간이지급명세서까지 함께 제출돼요</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>지금은 모든 것이 무료예요</li>
-      </ul>
     </div>
   </section>
 
