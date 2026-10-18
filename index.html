@@ -108,6 +108,8 @@ button{font:inherit;color:inherit}
 .cases li{background:var(--band);border-radius:24px;padding:30px 28px;min-width:0;display:flex;flex-direction:column}
 .cases h3{margin-top:18px;font-size:19px;font-weight:800;letter-spacing:-.03em;line-height:1.4}
 .cases p{margin-top:10px;color:var(--sub);font-size:15.5px;line-height:1.75}
+.cases .say{margin-top:12px;padding-bottom:14px;border-bottom:1px solid var(--line);color:var(--ink);font-size:16.5px;font-weight:600;line-height:1.65}
+.cases .say + p{margin-top:14px}
 @media (max-width:860px){.cases{grid-template-columns:1fr}}
 
 /* 소득 유형 태그 */
@@ -324,25 +326,28 @@ footer .copy{margin-top:16px}
   <section class="sec" id="cases">
     <div class="wrap">
       <div class="sec-head">
-        <p class="k">이용 사례</p>
+        <p class="k">이런 고민이라면</p>
         <h2>원천세 신고, 혼자서도 충분해요</h2>
-        <p>이런 상황이라면 원클릭 원천세로 직접 신고할 수 있어요.</p>
+        <p>사장님들이 자주 하시는 고민, 원클릭 원천세로 직접 해결할 수 있어요.</p>
       </div>
       <ul class="cases">
         <li>
           <span class="tag">사업소득 3.3%</span>
           <h3>보습학원 원장님</h3>
-          <p>강사료 원천세를 세무사 사무실에 맡기고 있다면, 강사 명단만 올려 직접 신고하고 수수료를 아낄 수 있어요.</p>
+          <p class="say">“강사료 원천세 신고, 매달 세무사 사무실에 맡기자니 수수료가 아까워요.”</p>
+          <p>강사 명단만 올리면 직접 신고가 끝나요. 수수료 걱정 없이요.</p>
         </li>
         <li>
           <span class="tag">기타소득 8.8%</span>
           <h3>원데이 클래스를 여는 카페 사장님</h3>
-          <p>클래스 강사료를 줄 때마다 세율이 헷갈렸다면, 지급액만 넣으세요. 세금이 자동으로 계산돼요.</p>
+          <p class="say">“클래스 강사료 줄 때마다 몇 퍼센트를 떼야 하는지 헷갈려요.”</p>
+          <p>지급액만 넣으면 세율에 맞춰 세금이 자동으로 계산돼요.</p>
         </li>
         <li>
           <span class="tag">사업소득 3.3%</span>
           <h3>디자인 스튜디오 대표님</h3>
-          <p>세무 지식이 없어도 화면 안내를 따라가면 원천세 신고부터 간이지급명세서 제출까지 혼자 끝낼 수 있어요.</p>
+          <p class="say">“세무 지식이 없는데, 셀프 신고가 정말 될까 걱정돼요.”</p>
+          <p>화면 안내만 따라가면 원천세 신고부터 간이지급명세서 제출까지 혼자 끝낼 수 있어요.</p>
         </li>
       </ul>
     </div>
