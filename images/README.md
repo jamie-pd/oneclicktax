@@ -20,7 +20,7 @@ PNG 또는 JPG, 가로세로 비율은 맞추고 크기는 2배(레티나)로 �
 
 ## 현재 이미지 수정하기
 
-지금 들어 있는 이미지는 `_source/frames.html`에 HTML로 그려 둔 앱 화면입니다. 문구나 금액을 바꾸려면 그 파일을 고친 뒤 아래 명령으로 다시 만드세요 (Node + Playwright 필요).
+지금 들어 있는 이미지는 `_source/frames.html`에 HTML로 그려 둔 앱 화면에, Figma AI로 만든 3D 그래픽(`_source/3d/`)을 얹은 것입니다. 추천 대상 아이콘(`who-*.png`)은 `_source/3d/`의 그래픽을 64px로 줄인 것이라 렌더 스크립트가 덮어쓰지 않습니다. 문구나 금액을 바꾸려면 그 파일을 고친 뒤 아래 명령으로 다시 만드세요 (Node + Playwright 필요).
 
 ```bash
 node images/_source/render.js
