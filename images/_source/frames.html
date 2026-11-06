@@ -1,214 +1,157 @@
 <!doctype html><html lang="ko"><head><meta charset="utf-8">
 <link rel="stylesheet" href="../../fonts/pretendard/pretendardvariable-dynamic-subset.css">
 <style>
-:root{--ink:#191F28;--sub:#6B7684;--faint:#A0A8B4;--line:#EDF0F3;--band:#F4F6F9;--blue:#237EF0;--deep:#1458C9;--wash:#EBF4FF;--soft:#CFE3FF;--kakao:#FEE500;--green:#14B866}
+/* 토스·당근 톤: 단색 배경, 반듯한 밝은 폰 하나(아래 크롭), 강조 요소 하나, 회색 단계 타이포 */
+:root{--g900:#191F28;--g700:#4E5968;--g500:#8B95A1;--g400:#B0B8C1;--g200:#E5E8EB;--g100:#F2F4F6;--g50:#F9FAFB;--blue:#237EF0;--bwash:#E8F3FF;--bg:#EDF4FF;--green:#03B26C;--gwash:#E5F8EF;--kakao:#FEE500}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:"Pretendard Variable",Pretendard,sans-serif;color:var(--ink);background:#ccc;letter-spacing:-.025em;-webkit-font-smoothing:antialiased;display:flex;flex-wrap:wrap;align-items:flex-start}
-.f{position:relative;overflow:hidden;margin:20px;flex-shrink:0}
+body{font-family:"Pretendard Variable",Pretendard,sans-serif;color:var(--g900);background:#999;letter-spacing:-.02em;-webkit-font-smoothing:antialiased;display:flex;flex-wrap:wrap;align-items:flex-start}
+.f{position:relative;overflow:hidden;margin:20px;flex-shrink:0;background:var(--bg)}
 .num{font-variant-numeric:tabular-nums}
-/* device */
-.dev{position:absolute;background:linear-gradient(150deg,#3A3E46 0%,#15171B 40%,#24272D 100%);padding:7px;box-shadow:0 50px 70px -36px rgba(8,30,80,.6),0 18px 30px -18px rgba(8,30,80,.35),inset 0 0 0 1.2px #4B4F57}
-.dev:before,.dev:after{content:"";position:absolute;width:3px;background:#2A2D33;border-radius:2px}
-.dev:before{left:-2.5px;top:88px;height:30px;box-shadow:0 40px 0 #2A2D33}
-.dev:after{right:-2.5px;top:110px;height:46px}
-.scr{background:#fff;height:100%;display:flex;flex-direction:column;position:relative;overflow:hidden;font-size:11px}
-.isl{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:62px;height:18px;background:#000;border-radius:12px;z-index:5}
-.sb{height:36px;display:flex;align-items:center;justify-content:space-between;padding:4px 20px 0 24px;font-size:11px;font-weight:700;flex-shrink:0}
-.sb svg{display:block}
-.nav{height:34px;display:flex;align-items:center;gap:6px;padding:0 16px;font-weight:700;font-size:13px;flex-shrink:0}
-.bk{width:16px;height:16px;display:grid;place-items:center}
-.bd{padding:4px 16px 0;flex:1;display:flex;flex-direction:column;min-height:0}
-.h{font-size:19px;font-weight:800;line-height:1.32;letter-spacing:-.045em}
-.s{color:var(--sub);font-size:11px;margin-top:5px;line-height:1.5}
-.card{background:var(--band);border-radius:14px;padding:12px 14px}
+/* light phone */
+.ph{position:absolute;background:#fff;padding:7px;box-shadow:0 0 0 1px rgba(0,23,51,.07),0 40px 80px -30px rgba(0,40,100,.22),0 12px 24px -12px rgba(0,40,100,.10)}
+.ph>.scr{position:relative;height:100%;background:#fff;overflow:hidden;box-shadow:inset 0 0 0 1px var(--g100)}
+.isl{position:absolute;top:9px;left:50%;transform:translateX(-50%);width:64px;height:19px;background:var(--g900);border-radius:12px}
+.sb{height:38px;display:flex;align-items:center;justify-content:space-between;padding:3px 20px 0 26px;font-size:11.5px;font-weight:700}
+.pad{padding:0 20px}
+.t{font-weight:700;letter-spacing:-.04em;line-height:1.36}
+.c5{color:var(--g500)}.c7{color:var(--g700)}.cb{color:var(--blue)}
 .row{display:flex;justify-content:space-between;align-items:center}
-.btn{flex-shrink:0;height:42px;border-radius:12px;background:var(--blue);color:#fff;font-weight:700;font-size:12.5px;display:flex;align-items:center;justify-content:center;gap:6px}
-.btn.ghost{background:var(--wash);color:var(--blue)}
-.tag{display:inline-flex;align-items:center;font-size:9.5px;font-weight:700;color:var(--blue);background:var(--wash);border-radius:99px;padding:3px 7px;white-space:nowrap}
-.tag.g{color:#0E9F55;background:#E3F8EC}
-.tag.o{color:#E07000;background:#FFF1DF}
-.av{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:11.5px;flex-shrink:0}
-.av.b{background:#E1EEFF;color:var(--blue)}.av.g{background:#DFF6E9;color:#0E9F55}.av.o{background:#FFEDD8;color:#E07000}
-.dl{display:flex;justify-content:space-between;padding:5px 0;font-size:11.5px}
-.dl span:first-child{color:var(--sub)}.dl span:last-child{font-weight:700}
-hr{border:0;border-top:1px solid #E3E7EC;margin:5px 0}
-.fl{position:absolute;background:rgba(255,255,255,.97);border-radius:18px;padding:12px 14px;box-shadow:0 22px 40px -18px rgba(8,30,80,.45),0 2px 6px rgba(8,30,80,.06);z-index:10}
-.ck{width:26px;height:26px;border-radius:50%;background:var(--blue);display:grid;place-items:center;flex-shrink:0}
-.ck.g{background:var(--green)}
-.ck svg{width:13px;height:13px}
-.ft{font-size:12px;font-weight:800}.fs{font-size:10px;color:var(--sub);margin-top:2px}
-.conf{position:absolute;border-radius:2px}
-.glow{position:absolute;border-radius:50%;filter:blur(30px)}
-.ico{display:block;width:32px;height:32px;margin:20px}
+.btn{height:46px;border-radius:14px;background:var(--blue);color:#fff;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;gap:6px}
+.av{border-radius:50%;display:grid;place-items:center;font-weight:700;flex-shrink:0}
+.pop{position:absolute;background:#fff;border-radius:22px;box-shadow:0 0 0 1px rgba(0,23,51,.05),0 28px 56px -20px rgba(0,40,100,.28),0 8px 16px -8px rgba(0,40,100,.10)}
+.chip{display:inline-flex;align-items:center;gap:4px;font-weight:700;border-radius:8px;padding:4px 8px;font-size:11px}
+.obj{position:absolute;filter:drop-shadow(0 18px 18px rgba(0,40,100,.16))}
 </style></head><body>
 <svg width="0" height="0" style="position:absolute"><defs>
  <symbol id="stat" viewBox="0 0 64 12"><g fill="#191F28"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/>
  <path d="M27 3.2a9 9 0 0 1 12 0l-1.4 1.5a7 7 0 0 0-9.2 0zM29.2 5.6a5.6 5.6 0 0 1 7.6 0l-1.4 1.5a3.6 3.6 0 0 0-4.8 0zM33 11l-2-2.1a2.8 2.8 0 0 1 4 0z"/>
- <rect x="44.5" y="1" width="16" height="9.5" rx="2.6" fill="none" stroke="#191F28" stroke-opacity=".45" stroke-width="1"/><rect x="46" y="2.5" width="13" height="6.5" rx="1.4"/><rect x="61.5" y="4" width="1.4" height="3.5" rx=".7" fill-opacity=".45"/></g></symbol>
- <symbol id="chk" viewBox="0 0 14 14"><path d="M3 7.3l2.6 2.6L11 4.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
- <symbol id="back" viewBox="0 0 16 16"><path d="M10 3L5 8l5 5" fill="none" stroke="#191F28" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+ <rect x="44.5" y="1" width="16" height="9.5" rx="2.6" fill="none" stroke="#191F28" stroke-opacity=".4" stroke-width="1"/><rect x="46" y="2.5" width="13" height="6.5" rx="1.4"/></g></symbol>
+ <symbol id="chk" viewBox="0 0 14 14"><path d="M3 7.3l2.6 2.6L11 4.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+ <symbol id="back" viewBox="0 0 16 16"><path d="M10 3L5 8l5 5" fill="none" stroke="#191F28" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
  <symbol id="kakao" viewBox="0 0 20 18"><path d="M10 1C4.8 1 1 4.2 1 8.1c0 2.5 1.6 4.7 4.1 5.9l-1 3.7 4.2-2.8c.6.1 1.1.1 1.7.1 5.2 0 9-3.2 9-7.1S15.2 1 10 1z" fill="#191919"/></symbol>
+ <symbol id="arr" viewBox="0 0 16 16"><path d="M6 3l5 5-5 5" fill="none" stroke="#B0B8C1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </defs></svg>
 
-<!-- ============ HERO 520x560 ============ -->
-<div class="f" id="hero" style="width:520px;height:560px;background:linear-gradient(155deg,#3D94FF 0%,#237EF0 42%,#1556CC 100%)">
-  <div class="glow" style="width:300px;height:300px;background:#7CC0FF;opacity:.55;left:170px;top:60px"></div>
-  <div class="glow" style="width:260px;height:260px;background:#0E3FA8;opacity:.6;left:-80px;top:380px"></div>
-  <svg style="position:absolute;inset:0" width="520" height="560"><g fill="none" stroke="#fff" stroke-opacity=".10"><circle cx="330" cy="280" r="170"/><circle cx="330" cy="280" r="240"/><circle cx="330" cy="280" r="310"/></g></svg>
-  <!-- back phone -->
-  <div class="dev" style="left:28px;top:96px;width:224px;height:462px;border-radius:40px;transform:rotate(-7deg)"><div class="scr" style="border-radius:33px">
+<!-- ================= HERO 520x560 ================= -->
+<div class="f" id="hero" style="width:520px;height:560px">
+  <div class="ph" style="left:196px;top:56px;width:282px;height:560px;border-radius:46px"><div class="scr" style="border-radius:39px">
     <div class="isl"></div><div class="sb"><span>9:41</span><svg width="56" height="11"><use href="#stat"/></svg></div>
-    <div class="nav"><svg class="bk"><use href="#back"/></svg>10월 지급 내역</div>
-    <div class="bd">
-      <div class="card" style="background:linear-gradient(135deg,#2E88F7,#1A63DA);color:#fff;padding:13px 14px">
-        <div style="font-size:10px;opacity:.85;font-weight:600">이번 달 원천세</div>
-        <div style="font-size:20px;font-weight:800;margin-top:3px" class="num">159,500원</div>
-        <div style="font-size:9.5px;opacity:.85;margin-top:3px" class="num">지급 총액 4,000,000원 · 3명</div>
+    <div class="pad" style="text-align:center;padding-top:30px">
+      <img src="3d/doc-check.png" style="width:96px;height:96px;filter:drop-shadow(0 12px 14px rgba(0,40,100,.12))">
+      <div class="t" style="font-size:22px;margin-top:18px">10월 원천세 신고를<br>마쳤어요</div>
+      <div class="c5" style="font-size:13px;margin-top:8px">홈택스에 정상적으로 접수됐어요</div>
+    </div>
+    <div class="pad" style="margin-top:28px">
+      <div style="border-top:1px solid var(--g100);padding-top:6px;font-size:13px" class="num">
+        <div class="row" style="padding:9px 0"><span class="c5">납부할 세금</span><b class="cb">159,500원</b></div>
+        <div class="row" style="padding:9px 0"><span class="c5">납부 기한</span><b>11월 10일</b></div>
+        <div class="row" style="padding:9px 0"><span class="c5">간이지급명세서</span><b>함께 제출됨</b></div>
       </div>
-      <div style="margin-top:8px">
-        <div class="row" style="padding:8px 0"><div style="display:flex;gap:8px;align-items:center"><div class="av b">김</div><div><div style="font-weight:700;font-size:11.5px">김민지</div><div style="font-size:9.5px;color:var(--sub)">디자인 외주</div></div></div><div style="text-align:right" class="num"><div style="font-weight:700">1,500,000원</div><div style="font-size:9px;color:var(--blue);font-weight:600">사업 3.3%</div></div></div>
-        <div class="row" style="padding:8px 0;border-top:1px solid var(--line)"><div style="display:flex;gap:8px;align-items:center"><div class="av g">박</div><div><div style="font-weight:700;font-size:11.5px">박준호</div><div style="font-size:9.5px;color:var(--sub)">앱 개발 외주</div></div></div><div style="text-align:right" class="num"><div style="font-weight:700">2,000,000원</div><div style="font-size:9px;color:var(--blue);font-weight:600">사업 3.3%</div></div></div>
-        <div class="row" style="padding:8px 0;border-top:1px solid var(--line)"><div style="display:flex;gap:8px;align-items:center"><div class="av o">이</div><div><div style="font-weight:700;font-size:11.5px">이서연</div><div style="font-size:9.5px;color:var(--sub)">특강 강연료</div></div></div><div style="text-align:right" class="num"><div style="font-weight:700">500,000원</div><div style="font-size:9px;color:#E07000;font-weight:600">기타 8.8%</div></div></div>
-      </div>
+      <div class="btn" style="margin-top:20px">납부서 받기</div>
     </div>
   </div></div>
-  <!-- front phone -->
-  <div class="dev" style="left:244px;top:40px;width:236px;height:486px;border-radius:42px;transform:rotate(4deg)"><div class="scr" style="border-radius:35px">
-    <div class="isl"></div><div class="sb"><span>9:41</span><svg width="56" height="11"><use href="#stat"/></svg></div>
-    <div class="conf" style="width:7px;height:12px;background:#FFC93C;left:40px;top:62px;transform:rotate(25deg)"></div>
-    <div class="conf" style="width:6px;height:6px;background:#22C47A;left:62px;top:96px;border-radius:50%"></div>
-    <div class="conf" style="width:8px;height:4px;background:#FF7A59;left:168px;top:70px;transform:rotate(-30deg)"></div>
-    <div class="conf" style="width:6px;height:11px;background:#7AB6FF;left:182px;top:110px;transform:rotate(40deg)"></div>
-    <div class="conf" style="width:5px;height:5px;background:#FFC93C;left:150px;top:52px;border-radius:50%"></div>
-    <div class="conf" style="width:7px;height:4px;background:#237EF0;left:28px;top:128px;transform:rotate(-15deg)"></div>
-    <div class="bd" style="align-items:center;text-align:center;padding-top:30px">
-      <img src="3d/doc-check.png" style="width:86px;height:86px;margin-top:-6px;filter:drop-shadow(0 10px 14px rgba(35,126,240,.25))">
-      <div class="h" style="margin-top:10px;font-size:20px">원천세 신고가<br>완료됐어요</div>
-      <div class="s">홈택스에 정상 접수됐어요</div>
-      <div class="card" style="margin-top:16px;width:100%;text-align:left;padding:8px 13px">
-        <div class="dl num"><span>귀속 연월</span><span>2026년 10월</span></div>
-        <div class="dl num"><span>납부할 세금</span><span style="color:var(--blue)">159,500원</span></div>
-        <div class="dl num"><span>납부 기한</span><span>11월 10일</span></div>
-        <div class="dl"><span>간이지급명세서</span><span style="color:var(--green)">제출 완료</span></div>
-      </div>
-      <div style="flex:1"></div>
-      <div style="display:flex;gap:6px;width:100%;margin-bottom:18px"><div class="btn ghost" style="flex:1">접수증</div><div class="btn" style="flex:1.3">납부서 받기</div></div>
+  <!-- notification -->
+  <div class="pop" style="left:22px;top:150px;width:240px;padding:15px 16px;border-radius:20px;display:flex;gap:11px;align-items:flex-start">
+    <div style="width:38px;height:38px;border-radius:11px;background:var(--blue);display:grid;place-items:center;color:#fff;flex-shrink:0"><svg width="18" height="18"><use href="#chk"/></svg></div>
+    <div style="flex:1;min-width:0">
+      <div class="row" style="font-size:11px"><span class="c5" style="font-weight:600">원클릭 원천세</span><span class="c5">지금</span></div>
+      <div style="font-size:13.5px;font-weight:700;margin-top:3px;letter-spacing:-.03em">홈택스 신고가 접수됐어요</div>
+      <div class="c7" style="font-size:12px;margin-top:2px">3명 · 지급액 4,000,000원</div>
     </div>
-  </div></div>
-  <div class="fl" style="left:18px;top:38px;display:flex;align-items:center;gap:9px"><span class="ck"><svg><use href="#chk"/></svg></span><div><div class="ft">세율 자동 계산</div><div class="fs">3.3% · 8.8% 알아서 적용</div></div></div>
-  <img src="3d/coin.png" style="position:absolute;right:-4px;top:2px;width:86px;z-index:11;transform:rotate(12deg);filter:drop-shadow(0 14px 16px rgba(8,30,80,.35))">
-  <img src="3d/plane.png" style="position:absolute;left:18px;top:440px;width:84px;z-index:11;filter:drop-shadow(0 14px 16px rgba(8,30,80,.35))">
-  <div class="fl" style="left:110px;top:470px;display:flex;align-items:center;gap:9px"><span class="ck g"><svg><use href="#chk"/></svg></span><div><div class="ft">신고까지 단 3분</div><div class="fs">간이지급명세서도 함께 제출</div></div></div>
-</div>
-
-<!-- ============ STEPS 210x330 ============ -->
-<div class="f" id="step-1" style="width:210px;height:330px;background:linear-gradient(170deg,#F3F8FF,#DDEBFF)">
-  <div class="glow" style="width:160px;height:160px;background:#fff;left:25px;top:40px;opacity:.9"></div>
-  <div class="dev" style="left:16px;top:26px;width:178px;height:360px;border-radius:34px;padding:6px"><div class="scr" style="border-radius:28px">
-    <div class="isl" style="width:54px;height:16px;top:7px"></div><div class="sb" style="height:32px;padding:3px 14px 0 20px;font-size:10px"><span>9:41</span><svg width="46" height="9"><use href="#stat"/></svg></div>
-    <div class="bd" style="padding:8px 14px 0;align-items:center;text-align:center">
-      <img src="3d/coin.png" style="width:62px;height:62px;margin-top:-4px;filter:drop-shadow(0 8px 10px rgba(224,160,0,.25))">
-      <div style="font-size:16.5px;font-weight:800;line-height:1.32;letter-spacing:-.05em;margin-top:8px">원천세 신고,<br>카카오로 바로 시작</div>
-      <div class="s" style="font-size:10px">회원가입·앱 설치 없이 무료</div>
-      <div style="display:flex;gap:5px;margin-top:14px"><span class="tag">사업소득 3.3%</span><span class="tag o">기타소득 8.8%</span></div>
-      <div class="btn" style="width:100%;background:var(--kakao);color:#191919;height:40px;font-size:12px;margin-top:18px"><svg width="15" height="14"><use href="#kakao"/></svg>카카오로 시작하기</div>
-    </div>
-  </div></div>
-</div>
-
-<div class="f" id="step-2" style="width:210px;height:330px;background:linear-gradient(170deg,#F3F8FF,#DDEBFF)">
-  <div class="dev" style="left:16px;top:26px;width:178px;height:360px;border-radius:34px;padding:6px"><div class="scr" style="border-radius:28px">
-    <div class="isl" style="width:54px;height:16px;top:7px"></div><div class="sb" style="height:32px;padding:3px 14px 0 20px;font-size:10px"><span>9:41</span><svg width="46" height="9"><use href="#stat"/></svg></div>
-    <div class="bd" style="padding:6px 13px 0">
-      <div style="font-size:15.5px;font-weight:800;line-height:1.32;letter-spacing:-.05em">누구에게 얼마를<br>지급했나요?</div>
-      <div style="margin-top:12px;display:flex;gap:7px;align-items:center;padding:8px 10px;border-radius:11px;background:var(--band)"><div class="av b" style="width:24px;height:24px;font-size:10px">김</div><div style="flex:1"><div style="font-weight:700;font-size:11px">김민지</div><div style="font-size:9px;color:var(--sub)">디자이너 · 외주비</div></div></div>
-      <div style="display:flex;gap:5px;margin-top:8px"><div style="flex:1;height:30px;border-radius:9px;border:1.5px solid var(--blue);background:var(--wash);color:var(--blue);font-size:10px;font-weight:700;display:grid;place-items:center">사업소득 3.3%</div><div style="flex:1;height:30px;border-radius:9px;border:1.5px solid var(--line);color:var(--sub);font-size:10px;font-weight:700;display:grid;place-items:center">기타소득 8.8%</div></div>
-      <div style="margin-top:12px;font-size:9.5px;color:var(--blue);font-weight:700">지급액</div>
-      <div style="display:flex;align-items:flex-end;gap:2px;border-bottom:2px solid var(--blue);padding:3px 0 5px"><span class="num" style="font-size:21px;font-weight:800;letter-spacing:-.03em">1,500,000</span><span style="width:2px;height:20px;background:var(--blue);margin:0 2px 3px"></span><span style="margin-left:auto;font-size:13px;font-weight:700;margin-bottom:3px">원</span></div>
-      <div style="margin-top:8px;display:flex;justify-content:space-between;font-size:9.5px" class="num"><span style="color:var(--sub)">원천징수 세액</span><span style="font-weight:700;color:var(--blue)">49,500원</span></div>
-    </div>
-  </div></div>
-</div>
-
-<div class="f" id="step-3" style="width:210px;height:330px;background:linear-gradient(170deg,#F3F8FF,#DDEBFF)">
-  <div class="dev" style="left:16px;top:26px;width:178px;height:360px;border-radius:34px;padding:6px"><div class="scr" style="border-radius:28px">
-    <div class="isl" style="width:54px;height:16px;top:7px"></div><div class="sb" style="height:32px;padding:3px 14px 0 20px;font-size:10px"><span>9:41</span><svg width="46" height="9"><use href="#stat"/></svg></div>
-    <div class="bd" style="padding:6px 13px 0">
-      <div style="font-size:10px;color:var(--sub);font-weight:600">10월 지급분 · 3명</div>
-      <div style="font-size:15.5px;font-weight:800;line-height:1.32;letter-spacing:-.05em;margin-top:3px">이번 달 낼 세금은</div>
-      <div class="num" style="font-size:25px;font-weight:800;color:var(--blue);letter-spacing:-.04em;line-height:1.25">159,500<span style="font-size:16px;color:var(--ink)">원</span></div>
-      <div class="card" style="margin-top:10px;padding:5px 11px">
-        <div class="dl num" style="font-size:10.5px"><span>소득세</span><span>145,000원</span></div>
-        <div class="dl num" style="font-size:10.5px"><span>지방소득세</span><span>14,500원</span></div>
-        <hr><div class="dl num" style="font-size:10.5px"><span>납부 기한</span><span>11월 10일</span></div>
-      </div>
-      <div style="display:flex;align-items:center;gap:5px;margin-top:9px;font-size:9.5px;font-weight:700;color:var(--sub)"><span class="ck g" style="width:14px;height:14px"><svg style="width:8px;height:8px"><use href="#chk"/></svg></span>간이지급명세서도 함께 제출돼요</div>
-      <div class="btn" style="margin-top:8px;height:38px;font-size:11.5px;box-shadow:0 8px 16px -8px rgba(35,126,240,.8)">홈택스에 신고하기</div>
-    </div>
-  </div></div>
-  
-</div>
-
-<!-- ============ FEATURE CALC 380x460 ============ -->
-<div class="f" id="feature-calc" style="width:380px;height:460px;background:linear-gradient(160deg,#F3F8FF 0%,#D6E7FF 100%)">
-  <div class="glow" style="width:240px;height:240px;background:#fff;left:70px;top:60px;opacity:.9"></div>
-  <div class="dev" style="left:72px;top:48px;width:236px;height:470px;border-radius:42px"><div class="scr" style="border-radius:35px">
-    <div class="isl"></div><div class="sb"><span>9:41</span><svg width="56" height="11"><use href="#stat"/></svg></div>
-    <div class="nav"><svg class="bk"><use href="#back"/></svg>세금 계산</div>
-    <div class="bd">
-      <div class="row"><div style="display:flex;align-items:center;gap:8px"><div class="av o">이</div><div><div style="font-weight:800;font-size:12.5px">이서연</div><div style="font-size:10px;color:var(--sub)">특강 강연료</div></div></div><span class="tag o">기타소득</span></div>
-      <div class="card" style="margin-top:12px;padding:7px 13px">
-        <div class="dl num"><span>지급액</span><span>500,000원</span></div>
-        <div class="dl num"><span>필요경비 60%</span><span style="color:var(--sub);font-weight:600">−300,000원</span></div>
-        <hr>
-        <div class="dl num"><span>소득세 20%</span><span>40,000원</span></div>
-        <div class="dl num"><span>지방소득세 10%</span><span>4,000원</span></div>
-      </div>
-      <div style="margin-top:14px;font-size:10.5px;color:var(--sub);font-weight:600">받는 분께 입금할 금액</div>
-      <div class="num" style="font-size:26px;font-weight:800;letter-spacing:-.04em;margin-top:1px">456,000<span style="font-size:16px">원</span></div>
-    </div>
-  </div></div>
-  <!-- big rate badge -->
-  <div class="fl" style="left:232px;top:26px;width:128px;padding:13px 14px;background:linear-gradient(145deg,#3D94FF,#1A63DA);color:#fff;transform:rotate(4deg)">
-    <div style="font-size:10px;font-weight:600;opacity:.85">자동 적용 세율</div>
-    <div style="font-size:30px;font-weight:900;letter-spacing:-.04em;line-height:1.1;margin-top:2px">8.8%</div>
-    <div style="font-size:9.5px;opacity:.85;margin-top:2px">소득세 8% + 지방 0.8%</div>
   </div>
-  <img src="3d/calculator.png" style="position:absolute;left:6px;top:350px;width:100px;z-index:11;transform:rotate(-8deg);filter:drop-shadow(0 16px 18px rgba(8,30,80,.3))">
-  <div class="fl" style="left:168px;top:384px;display:flex;align-items:center;gap:9px"><span class="ck"><svg><use href="#chk"/></svg></span><div><div class="ft">절사·소액부징수 반영</div><div class="fs">복잡한 규칙도 자동으로</div></div></div>
 </div>
 
-<!-- ============ FEATURE HOMETAX 380x460 ============ -->
-<div class="f" id="feature-hometax" style="width:380px;height:460px;background:linear-gradient(160deg,#F3F8FF 0%,#D6E7FF 100%)">
-  <div class="glow" style="width:240px;height:240px;background:#fff;left:70px;top:60px;opacity:.9"></div>
-  <div class="dev" style="left:40px;top:48px;width:236px;height:470px;border-radius:42px"><div class="scr" style="border-radius:35px">
-    <div class="isl"></div><div class="sb"><span>9:41</span><svg width="56" height="11"><use href="#stat"/></svg></div>
-    <div class="nav" style="font-size:15px;padding-top:4px">신고 내역</div>
-    <div class="bd" style="gap:8px;padding-top:8px">
-      <div class="card" style="background:#fff;box-shadow:0 0 0 1.5px var(--soft),0 8px 16px -10px rgba(35,126,240,.5)">
-        <div class="row"><span style="font-weight:800;font-size:12.5px">2026년 10월</span><span class="tag g">접수 완료</span></div>
-        <div class="num" style="font-size:17px;font-weight:800;margin-top:5px">159,500원</div>
-        <div style="font-size:9.5px;color:var(--sub);margin-top:1px">원천세 · 간이지급명세서 제출</div>
-        <div style="display:flex;gap:6px;margin-top:10px"><div class="btn ghost" style="flex:1;height:30px;font-size:10.5px">접수증</div><div class="btn" style="flex:1;height:30px;font-size:10.5px">납부서</div></div>
-      </div>
-      <div class="card"><div class="row"><span style="font-weight:800;font-size:12px">2026년 9월</span><span class="tag g">접수 완료</span></div><div class="num" style="font-size:10px;color:var(--sub);margin-top:4px">원천세 99,000원</div></div>
-      <div class="card"><div class="row"><span style="font-weight:800;font-size:12px">2026년 8월</span><span class="tag g">접수 완료</span></div><div class="num" style="font-size:10px;color:var(--sub);margin-top:4px">원천세 115,500원</div></div>
-          </div>
-  </div></div>
-  <img src="3d/plane.png" style="position:absolute;left:270px;top:40px;width:96px;z-index:11;filter:drop-shadow(0 16px 18px rgba(8,30,80,.3))">
-  <!-- receipt document -->
-  <div class="fl" style="left:246px;top:150px;width:124px;padding:14px 12px 46px;border-radius:12px;transform:rotate(5deg)">
-    <div style="font-size:11.5px;font-weight:800;text-align:center">접수증</div>
-    <div style="height:1.5px;background:var(--ink);margin:7px 0 8px"></div>
-    <div class="num" style="font-size:8.5px;line-height:1.75;color:var(--sub)">
-      <div class="row"><span>신고서 종류</span><b style="color:var(--ink)">원천세</b></div>
-      <div class="row"><span>귀속 연월</span><b style="color:var(--ink)">2026.10</b></div>
-      <div class="row"><span>접수 일시</span><b style="color:var(--ink)">11.06 14:32</b></div>
+<!-- ================= STEPS 210x330 ================= -->
+<div class="f" id="step-1" style="width:210px;height:330px">
+  <div class="ph" style="left:22px;top:30px;width:166px;height:340px;border-radius:32px;padding:5px"><div class="scr" style="border-radius:27px">
+    <div class="isl" style="width:36px;height:12px;top:8px"></div><div class="sb" style="height:30px;padding:2px 13px 0 18px;font-size:9.5px"><span>9:41</span><svg width="36" height="7"><use href="#stat"/></svg></div>
+    <div style="padding:22px 14px 0;text-align:center">
+      <img src="3d/coin.png" style="width:58px;height:58px">
+      <div class="t" style="font-size:15px;margin-top:12px">원천세 신고,<br>3분이면 끝나요</div>
+      <div class="c5" style="font-size:9.5px;margin-top:6px">앱 설치 없이 무료로 시작해요</div>
+      <div class="btn" style="margin-top:26px;height:38px;border-radius:11px;font-size:11px;background:var(--kakao);color:#191919"><svg width="13" height="12"><use href="#kakao"/></svg>카카오로 시작하기</div>
     </div>
-    <div style="margin-top:8px;display:grid;gap:4px"><div style="height:4px;border-radius:2px;background:var(--line)"></div><div style="height:4px;width:70%;border-radius:2px;background:var(--line)"></div></div>
-    <div style="position:absolute;right:12px;bottom:6px;width:36px;height:36px;border-radius:50%;border:2px solid #237EF0;color:#237EF0;display:grid;place-items:center;font-size:10px;font-weight:900;transform:rotate(-14deg);opacity:.9">접수</div>
-  </div>
-  <div class="fl" style="left:150px;top:388px;display:flex;align-items:center;gap:9px"><span class="ck g"><svg><use href="#chk"/></svg></span><div><div class="ft">홈택스 자동 제출</div><div class="fs">신고서·명세서 한 번에</div></div></div>
+  </div></div>
 </div>
 
+<div class="f" id="step-2" style="width:210px;height:330px">
+  <div class="ph" style="left:22px;top:30px;width:166px;height:340px;border-radius:32px;padding:5px"><div class="scr" style="border-radius:27px">
+    <div class="isl" style="width:36px;height:12px;top:8px"></div><div class="sb" style="height:30px;padding:2px 13px 0 18px;font-size:9.5px"><span>9:41</span><svg width="36" height="7"><use href="#stat"/></svg></div>
+    <div style="padding:14px 14px 0">
+      <div class="t" style="font-size:15px">누구에게 얼마를<br>지급했나요?</div>
+      <div style="margin-top:18px"><div class="c5" style="font-size:9px;font-weight:600">받는 사람</div><div style="font-size:12.5px;font-weight:700;padding:5px 0 7px;border-bottom:1px solid var(--g200)">김민지</div></div>
+      <div style="margin-top:12px"><div class="c5" style="font-size:9px;font-weight:600">소득 종류</div><div class="row" style="font-size:12.5px;font-weight:700;padding:5px 0 7px;border-bottom:1px solid var(--g200)">사업소득 3.3%<svg width="10" height="10" style="transform:rotate(90deg)"><use href="#arr"/></svg></div></div>
+      <div style="margin-top:12px"><div class="cb" style="font-size:9px;font-weight:700">지급액</div><div class="row num" style="font-size:17px;font-weight:700;padding:3px 0 6px;border-bottom:2px solid var(--blue)"><span>1,500,000<span style="display:inline-block;width:1.5px;height:16px;background:var(--blue);margin-left:2px;vertical-align:-2px"></span></span><span style="font-size:12.5px">원</span></div></div>
+      <div class="row num" style="margin-top:7px;font-size:9.5px"><span class="c5">떼어둘 세금</span><b class="cb">49,500원</b></div>
+    </div>
+  </div></div>
+</div>
+
+<div class="f" id="step-3" style="width:210px;height:330px">
+  <div class="ph" style="left:22px;top:30px;width:166px;height:340px;border-radius:32px;padding:5px"><div class="scr" style="border-radius:27px">
+    <div class="isl" style="width:36px;height:12px;top:8px"></div><div class="sb" style="height:30px;padding:2px 13px 0 18px;font-size:9.5px"><span>9:41</span><svg width="36" height="7"><use href="#stat"/></svg></div>
+    <div style="padding:14px 14px 0">
+      <div class="c5" style="font-size:10px;font-weight:600">10월에 낼 원천세</div>
+      <div class="t num" style="font-size:23px;margin-top:2px">159,500원</div>
+      <div style="margin-top:14px;font-size:10.5px" class="num">
+        <div class="row" style="padding:5px 0"><span class="c5">소득세</span><b>145,000원</b></div>
+        <div class="row" style="padding:5px 0"><span class="c5">지방소득세</span><b>14,500원</b></div>
+        <div class="row" style="padding:5px 0"><span class="c5">납부 기한</span><b>11월 10일</b></div>
+      </div>
+      <div style="margin-top:10px;background:var(--g50);border-radius:10px;padding:8px 10px;font-size:9.5px;display:flex;gap:5px;align-items:center" class="c7"><svg width="11" height="11" style="color:var(--green)"><use href="#chk"/></svg>간이지급명세서 함께 제출</div>
+      <div class="btn" style="margin-top:14px;height:38px;border-radius:11px;font-size:11.5px">홈택스에 신고하기</div>
+    </div>
+  </div></div>
+</div>
+
+<!-- ================= FEATURE CALC 380x460 ================= -->
+<div class="f" id="feature-calc" style="width:380px;height:460px">
+  <div class="ph" style="left:76px;top:56px;width:228px;height:480px;border-radius:40px;padding:6px"><div class="scr" style="border-radius:34px">
+    <div class="isl" style="width:56px;height:16px;top:8px"></div><div class="sb" style="height:34px;font-size:10.5px;padding:3px 18px 0 22px"><span>9:41</span><svg width="50" height="10"><use href="#stat"/></svg></div>
+    <div style="padding:10px 16px 0">
+      <div class="t" style="font-size:16px">10월 지급 내역</div>
+      <div class="num" style="margin-top:12px;font-size:11px">
+        <div class="row" style="padding:8px 0"><div style="display:flex;gap:9px;align-items:center"><div class="av" style="width:30px;height:30px;background:var(--bwash);color:var(--blue);font-size:11px">김</div><div><b>김민지</b><div class="c5" style="font-size:9.5px;margin-top:1px">사업소득</div></div></div><b>1,500,000원</b></div>
+        <div class="row" style="padding:8px 0"><div style="display:flex;gap:9px;align-items:center"><div class="av" style="width:30px;height:30px;background:var(--gwash);color:var(--green);font-size:11px">박</div><div><b>박준호</b><div class="c5" style="font-size:9.5px;margin-top:1px">사업소득</div></div></div><b>2,000,000원</b></div>
+        
+      </div>
+    </div>
+  </div></div>
+  <!-- pop-out: expanded calc of 이서연 -->
+  <div class="pop" style="left:40px;top:244px;width:300px;padding:20px 22px">
+    <div class="row"><div style="display:flex;gap:10px;align-items:center"><div class="av" style="width:36px;height:36px;background:#FFF0E0;color:#F07800;font-size:13px">이</div><div><div style="font-size:14px;font-weight:700">이서연 · 강연료</div><div class="c5" style="font-size:11px;margin-top:1px">지급액 500,000원</div></div></div><span class="chip" style="background:var(--bwash);color:var(--blue)">8.8% 자동 적용</span></div>
+    <div class="num" style="margin-top:14px;font-size:12.5px;border-top:1px solid var(--g100);padding-top:8px">
+      <div class="row" style="padding:6px 0"><span class="c5">소득세</span><b>40,000원</b></div>
+      <div class="row" style="padding:6px 0"><span class="c5">지방소득세</span><b>4,000원</b></div>
+      <div class="row" style="padding:10px 0 0"><span class="c7" style="font-weight:600">실제 입금할 금액</span><b class="cb" style="font-size:17px">456,000원</b></div>
+    </div>
+  </div>
+  <img class="obj" src="3d/calculator.png" style="right:8px;top:120px;width:84px;transform:rotate(10deg)">
+</div>
+
+<!-- ================= FEATURE HOMETAX 380x460 ================= -->
+<div class="f" id="feature-hometax" style="width:380px;height:460px">
+  <div class="ph" style="left:76px;top:56px;width:228px;height:480px;border-radius:40px;padding:6px"><div class="scr" style="border-radius:34px">
+    <div class="isl" style="width:56px;height:16px;top:8px"></div><div class="sb" style="height:34px;font-size:10.5px;padding:3px 18px 0 22px"><span>9:41</span><svg width="50" height="10"><use href="#stat"/></svg></div>
+    <div style="padding:10px 16px 0">
+      <div class="t" style="font-size:16px">신고 내역</div>
+      <div class="num" style="margin-top:10px;font-size:11px">
+        <div class="row" style="padding:10px 0;border-bottom:1px solid var(--g100)"><div><b>2026년 9월분</b><div class="c5" style="font-size:9.5px;margin-top:2px">99,000원 · 접수 완료</div></div><svg width="12" height="12"><use href="#arr"/></svg></div>
+        <div class="row" style="padding:10px 0;border-bottom:1px solid var(--g100)"><div><b>2026년 8월분</b><div class="c5" style="font-size:9.5px;margin-top:2px">115,500원 · 접수 완료</div></div><svg width="12" height="12"><use href="#arr"/></svg></div>
+        
+      </div>
+    </div>
+  </div></div>
+  <!-- pop-out: this month's filing -->
+  <div class="pop" style="left:40px;top:236px;width:300px;padding:20px 22px">
+    <div class="row"><div style="font-size:14px;font-weight:700">2026년 10월분</div><span class="chip" style="background:var(--gwash);color:var(--green)"><svg width="10" height="10"><use href="#chk"/></svg>홈택스 접수 완료</span></div>
+    <div class="num" style="margin-top:12px;font-size:12px;border-top:1px solid var(--g100);padding-top:6px">
+      <div class="row" style="padding:6px 0"><span class="c5">원천징수이행상황신고서</span><b>제출</b></div>
+      <div class="row" style="padding:6px 0"><span class="c5">간이지급명세서</span><b>제출</b></div>
+      <div class="row" style="padding:6px 0"><span class="c5">납부할 세금</span><b class="cb">159,500원</b></div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:12px"><div class="btn" style="flex:1;height:38px;font-size:12px;border-radius:11px;background:var(--g100);color:var(--g700)">접수증</div><div class="btn" style="flex:1;height:38px;font-size:12px;border-radius:11px">납부서</div></div>
+  </div>
+  <img class="obj" src="3d/plane.png" style="left:22px;top:30px;width:92px">
+</div>
 </body></html>
