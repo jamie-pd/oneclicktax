@@ -86,9 +86,9 @@ button{font:inherit;color:inherit}
 
 /* 이미지 슬롯: images/ 폴더에 파일을 넣으면 그림이 보이고, 없으면 자리와 규격만 표시 */
 .slot{position:relative;margin:0;width:100%;aspect-ratio:var(--w)/var(--h);border-radius:28px;overflow:hidden;background:repeating-linear-gradient(45deg,var(--blue-wash) 0 10px,var(--band) 10px 20px);border:1.5px dashed var(--blue-soft)}
-.slot:has(img){border:0;background:none}
-.slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.slot img ~ figcaption{display:none}
+.slot:has(> img){border:0;background:none}
+.slot > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.slot > img ~ figcaption{display:none}
 .slot figcaption{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;padding:16px;color:var(--sub);font-size:13px}
 .slot figcaption b{font-size:15px;color:var(--ink)}
 .slot figcaption span{font-variant-numeric:tabular-nums}
@@ -189,6 +189,44 @@ footer .links a:hover{color:var(--ink)}
 footer .info{margin-top:24px;line-height:1.9}
 footer .info b{color:var(--sub);font-weight:600}
 footer .copy{margin-top:16px}
+/* mk:start — images/_source/embed.js가 생성. 직접 고치지 말고 frames.html을 고친 뒤 다시 실행 */
+.mk-f{--mk-g900:#1F1F23;--mk-g600:#78787F;--mk-g400:#B4B4BB;--mk-g200:#E2E2E5;--mk-g100:#F2F2F3;--mk-g50:#F8F8F8;--mk-blue:#237EF0;--mk-b100:#D1E5FF;--mk-b50:#EBF4FF;--mk-teal:#0F766E;--mk-t50:#CCFBF1;--mk-amber:#B45309;--mk-a50:#FEF3C7;--mk-green:#00B235;--mk-gr50:#E3F8EA;--mk-kakao:#FFD11B;--mk-sky:#9CC9FF}
+.mk-f,.mk-f *{box-sizing:border-box;margin:0;padding:0}
+.mk-f{position:relative;overflow:hidden;flex-shrink:0;background:var(--mk-b50)}
+.mk-blob{position:absolute;border-radius:50%;filter:blur(40px)}
+.mk-ph{position:absolute;background:#fff;box-shadow:0 0 0 1px rgba(20,40,80,.07),0 40px 80px -30px rgba(20,60,130,.25),0 12px 24px -12px rgba(20,60,130,.10)}
+.mk-scr{position:relative;height:100%;overflow:hidden;background:#fff;box-shadow:inset 0 0 0 1px var(--mk-g100)}
+.mk-app{position:relative;width:375px;height:812px;background:#fff;overflow:hidden;line-height:1.4;font-variant-numeric:tabular-nums}
+.mk-app .mk-ab{position:absolute}
+.mk-sbar{position:absolute;left:0;top:0;width:375px;height:44px}
+.mk-sbar .mk-n{position:absolute;left:78px;top:-2px;width:219px;height:30px}
+.mk-sbar .mk-r{position:absolute;right:14.67px;top:17.33px;width:66.66px;height:11.34px}
+.mk-sbar .mk-t{position:absolute;left:21px;top:12px;width:54px;height:21px}
+.mk-hdr{position:absolute;left:0;top:44px;width:375px;height:52px;display:flex;align-items:center;gap:20px;padding:12px 20px}
+.mk-hdr .mk-c{flex:1;text-align:center;font-weight:700;font-size:15px}
+.mk-home-ind{position:absolute;left:50%;bottom:8px;transform:translateX(-50%);width:134px;height:5px;border-radius:100px;background:#111}
+.mk-btn{height:52px;border-radius:12px;background:var(--mk-blue);color:#fff;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center}
+.mk-btn.mk-soft{background:var(--mk-b100);color:var(--mk-blue)}
+.mk-badge{display:inline-block;border-radius:99px;padding:4px 8px;font-size:11px;font-weight:500;line-height:normal}
+.mk-chip{display:inline-flex;align-items:center;gap:12px;padding:12px;border-radius:100px;font-size:15px;font-weight:700;line-height:normal}
+.mk-chip.mk-on{background:var(--mk-b100);color:var(--mk-blue)}
+.mk-chip.mk-off{background:var(--mk-g100);color:var(--mk-g400);gap:8px}
+.mk-lbl{font-weight:700;font-size:13px}
+.mk-inp{height:48px;border-radius:10px;background:var(--mk-g50);display:flex;align-items:center;padding:12px;font-size:15px}
+.mk-row{display:flex;justify-content:space-between;align-items:center}
+.mk-col{display:flex;flex-direction:column}
+.mk-fade{position:absolute;left:0;width:375px;height:32px;background:linear-gradient(rgba(255,255,255,0),#fff)}
+img.mk-ic{display:block}
+.mk-glass{position:absolute;background:rgba(255,255,255,.78);-webkit-backdrop-filter:blur(18px) saturate(170%);backdrop-filter:blur(18px) saturate(170%);
+ border:1px solid rgba(255,255,255,.9);box-shadow:0 24px 48px -20px rgba(20,60,130,.28),0 2px 6px rgba(20,60,130,.05),inset 0 1px 0 rgba(255,255,255,.95);line-height:1.4}
+.mk-eyebrow{font-size:11px;font-weight:700;color:var(--mk-blue);letter-spacing:.01em}
+.mk-k1{font-size:20px;font-weight:700;letter-spacing:-.02em}
+.mk-k2{font-size:13px;font-weight:700}
+.mk-k3{font-size:11.5px;color:var(--mk-g600)}
+.mk-hr{height:1px;background:rgba(31,31,35,.08)}
+.mk-obj{position:absolute;filter:drop-shadow(0 16px 20px rgba(20,60,130,.14))}
+.slot.mk-slot{border:0;background:none}.mk-stage{position:absolute;inset:0;overflow:hidden}.mk-stage>.mk-f{position:absolute;left:0;top:0;transform-origin:0 0}
+/* mk:end */
 </style>
 </head>
 <body>
@@ -221,7 +259,44 @@ footer .copy{margin-top:16px}
         <p class="fine">앱 설치 없이 무료로 바로 시작</p>
       </div>
 
-      <div class="hero-art"><figure class="slot" style="--w:1040;--h:1120"><img src="images/hero.png" alt="원클릭 원천세 서비스 화면 미리보기" onerror="this.remove()"><figcaption><b>히어로 메인 이미지 (앱 화면 2개)</b><span>images/hero.png</span><span>1040 × 1120px</span></figcaption></figure></div>
+      <div class="hero-art"><figure class="slot mk-slot" style="--w:1040;--h:1120" data-mk="hero" role="img" aria-label="원클릭 원천세 홈 화면, 6월 원천세 신고 완료"><div class="mk-stage" aria-hidden="true"><div class="mk-f" style="width:520px;height:560px">
+  <div class="mk-blob" style="width:260px;height:260px;background:var(--mk-sky);opacity:.55;left:-60px;top:250px"></div>
+  <div class="mk-blob" style="width:220px;height:220px;background:var(--mk-blue);opacity:.2;right:-40px;top:-40px"></div>
+  <div class="mk-ph" style="left:200px;top:56px;width:280px;height:560px;border-radius:46px;padding:7px"><div class="mk-scr" style="border-radius:39px"><div class="mk-app" style="zoom: 0.709;"><div class="mk-sbar"><img alt="" class="mk-n" src="images/app/notch.svg"><img alt="" class="mk-r" src="images/app/status-right.svg"><img alt="" class="mk-t" src="images/app/status-time.svg"></div>
+ <div class="mk-hdr" style="padding:12px 20px"><span style="font-weight:700;font-size:17px">원천세</span></div>
+ <div class="mk-ab mk-col" style="left:20px;top:112px;width:335px;gap:30px">
+  <div style="display:flex;gap:12px;align-items:center">
+   <div style="width:40px;height:40px;display:grid;place-items:center"><img alt="" class="mk-ic" src="images/app/bell.svg" style="width:40px;height:40px;transform:rotate(-90deg) scaleY(-1)"></div>
+   <div class="mk-col" style="gap:4px;flex:1"><span style="font-weight:700;font-size:15px;white-space:pre">6월 지급분  신고 마감 D-5</span><span style="font-size:13px;color:var(--mk-blue)">7월 10일(금)까지 신고·납부해야 해요</span></div>
+  </div>
+  <div class="mk-col" style="border:1px solid var(--mk-g200);border-radius:14px;padding:16px;gap:16px">
+   <div class="mk-col" style="gap:12px;font-weight:700"><span style="font-size:13px;color:var(--mk-g600)">신고 완료</span><div class="mk-col" style="gap:8px"><span style="font-size:15px">메가커피(수서역점)</span><span style="font-size:21px">185,180원</span></div></div>
+   <div style="height:1px;background:var(--mk-g200)"></div>
+   <div class="mk-col" style="gap:10px;font-size:12px;line-height:normal">
+    <div class="mk-row"><span style="color:var(--mk-g600)">지급 대상</span><span style="font-weight:500">4명</span></div>
+    <div class="mk-row"><span style="color:var(--mk-g600)">국세</span><span style="font-weight:500">168,350원</span></div>
+    <div class="mk-row"><span style="color:var(--mk-g600)">지방세</span><span style="font-weight:500">16,830원</span></div>
+    <div class="mk-row"><span style="color:var(--mk-g600)">간이지급명세서</span><span style="font-weight:500">제출 완료</span></div>
+   </div>
+   <div class="mk-btn mk-soft">신고 다시하기</div>
+  </div>
+ </div>
+ <div class="mk-ab" style="left:0;bottom:34px;width:375px;height:64px;border-top:1px solid var(--mk-g400);background:#fff;display:flex;padding-top:8px">
+  <div class="mk-col" style="flex:1;align-items:center;gap:3px"><img alt="" class="mk-ic" src="images/app/tab-home.svg" style="width:24px;height:24px"><span style="font-size:10px;font-weight:500;color:var(--mk-blue);line-height:normal">홈</span></div>
+  <div class="mk-col" style="flex:1;align-items:center;gap:3px"><img alt="" class="mk-ic" src="images/app/tab-docs.svg" style="width:24px;height:24px"><span style="font-size:10px;color:var(--mk-g400);line-height:normal">내 문서</span></div>
+  <div class="mk-col" style="flex:1;align-items:center;gap:3px"><img alt="" class="mk-ic" src="images/app/tab-my.svg" style="width:24px;height:24px"><span style="font-size:10px;color:var(--mk-g400);line-height:normal">마이</span></div>
+ </div>
+ <div class="mk-ab" style="left:0;top:778px;width:375px;height:34px"><i class="mk-home-ind"></i></div>
+</div></div></div>
+  <div class="mk-glass" style="left:22px;top:418px;width:250px;padding:14px 16px;border-radius:18px;display:flex;gap:11px;align-items:center">
+    <div style="width:36px;height:36px;border-radius:10px;background:var(--mk-blue);display:grid;place-items:center;flex-shrink:0"><img alt="" src="images/app/logo-check.svg" style="width:17px;filter:brightness(0) invert(1)"></div>
+    <div style="flex:1;min-width:0">
+      <div class="mk-row mk-k3" style="font-size:10.5px"><span>원클릭 원천세</span><span>지금</span></div>
+      <div class="mk-k2" style="margin-top:1px">6월 원천세 신고를 마쳤어요</div>
+      <div class="mk-k3">총 납부세액 <b style="color:var(--mk-g900)">185,180원</b></div>
+    </div>
+  </div>
+</div></div></figure></div>
     </div>
   </section>
 
@@ -237,19 +312,61 @@ footer .copy{margin-top:16px}
           <span class="n">1</span>
           <h3>원클릭 원천세 접속</h3>
           <p>카카오 계정 하나로 신고를 시작할 수 있어요.</p>
-          <figure class="slot step-slot" style="--w:420;--h:660"><img src="images/step-1.png" alt="원클릭 원천세 홈 화면" onerror="this.remove()"><figcaption><b>1단계 · 홈 화면</b><span>images/step-1.png</span><span>420 × 660px</span></figcaption></figure>
+          <figure class="slot step-slot mk-slot" style="--w:420;--h:660" data-mk="step-1" role="img" aria-label="원클릭 원천세 카카오 로그인 화면"><div class="mk-stage" aria-hidden="true"><div class="mk-f" style="width:210px;height:330px"><div class="mk-blob" style="width:160px;height:160px;background:var(--mk-sky);opacity:.5;left:-50px;top:200px"></div>
+  <div class="mk-ph" style="left:17px;top:28px;width:176px;height:360px;border-radius:32px;padding:5px"><div class="mk-scr" style="border-radius:27px"><div class="mk-app" style="zoom: 0.443;"><div class="mk-sbar"><img alt="" class="mk-n" src="images/app/notch.svg"><img alt="" class="mk-r" src="images/app/status-right.svg"><img alt="" class="mk-t" src="images/app/status-time.svg"></div>
+ <div class="mk-ab mk-col" style="left:50%;top:50%;transform:translate(-50%,-50%);width:130px;gap:7px;align-items:center">
+  <img alt="" class="mk-ic" src="images/app/logo-check.svg" style="width:29px;height:21px">
+  <div style="font-weight:700;font-size:50px;line-height:1.4;width:100%"><div>원클릭</div><div style="color:#3D67FC">원천세</div></div>
+ </div>
+ <div class="mk-ab" style="left:20px;top:706px;width:335px;border-radius:12px;background:var(--mk-kakao);padding:16px 0;display:flex;gap:10px;align-items:center;justify-content:center"><img alt="" class="mk-ic" src="images/app/kakao.png" style="width:24px;height:24px"><span style="font-weight:700;font-size:17px;line-height:normal">카카오 로그인</span></div>
+ <div class="mk-ab" style="left:0;top:778px;width:375px;height:34px"><i class="mk-home-ind"></i></div>
+</div></div></div></div></div></figure>
         </div>
         <div class="step">
           <span class="n">2</span>
           <h3>지급 내역 입력</h3>
           <p>누구에게 얼마를 지급했는지 입력해요.</p>
-          <figure class="slot step-slot" style="--w:420;--h:660"><img src="images/step-2.png" alt="지급 내역 입력 화면" onerror="this.remove()"><figcaption><b>2단계 · 입력 화면</b><span>images/step-2.png</span><span>420 × 660px</span></figcaption></figure>
+          <figure class="slot step-slot mk-slot" style="--w:420;--h:660" data-mk="step-2" role="img" aria-label="소득자 정보 입력 화면"><div class="mk-stage" aria-hidden="true"><div class="mk-f" style="width:210px;height:330px"><div class="mk-blob" style="width:160px;height:160px;background:var(--mk-sky);opacity:.5;left:-50px;top:200px"></div>
+  <div class="mk-ph" style="left:17px;top:28px;width:176px;height:360px;border-radius:32px;padding:5px"><div class="mk-scr" style="border-radius:27px"><div class="mk-app" style="zoom: 0.443;"><div class="mk-sbar"><img alt="" class="mk-n" src="images/app/notch.svg"><img alt="" class="mk-r" src="images/app/status-right.svg"><img alt="" class="mk-t" src="images/app/status-time.svg"></div>
+ <div class="mk-hdr"><span style="width:20px"></span><span class="mk-c">{메가커피(수서역점)} 원천세 신고</span><img alt="" class="mk-ic" src="images/app/close.svg" style="width:24px;height:24px;padding:1.6px"></div>
+ <div class="mk-ab mk-col" style="left:20px;top:116px;width:335px;gap:30px">
+  <div class="mk-col" style="gap:12px;font-weight:700"><span style="font-size:15px;color:#3D67FC">1/2</span><span style="font-size:21px">소득자 정보를 입력해주세요</span></div>
+  <div class="mk-col" style="border:1px solid var(--mk-g200);border-radius:14px;padding:20px;gap:30px">
+   <div style="text-align:center;font-weight:700;font-size:17px;line-height:normal">소득자를 한 분씩 추가해 주세요</div>
+   <div class="mk-col" style="gap:12px;line-height:normal"><div style="display:flex;gap:20px;align-items:center"><div class="mk-row" style="flex:1"><div class="mk-col" style="gap:8px"><div style="display:flex;gap:4px;align-items:center"><b style="font-size:14px">김민수</b><img alt="" class="mk-ic" src="images/app/chevron-sm.svg" style="width:12px;height:12px;transform:scaleX(-1)"></div><span class="mk-badge" style="align-self:flex-start;background:var(--mk-t50);color:var(--mk-teal)">사업소득</span></div><div class="mk-col" style="gap:3px;align-items:flex-end"><b style="font-size:14px">3,000,000원</b><span style="font-size:11px;color:var(--mk-g600)">원천세 81,780원</span></div></div><img alt="" class="mk-ic" src="images/app/x-sm.svg" style="width:16px;height:16px;padding:1.6px"></div><div style="height:1px;background:var(--mk-g100)"></div><div style="display:flex;gap:20px;align-items:center"><div class="mk-row" style="flex:1"><div class="mk-col" style="gap:8px"><div style="display:flex;gap:4px;align-items:center"><b style="font-size:14px">이서연</b><img alt="" class="mk-ic" src="images/app/chevron-sm.svg" style="width:12px;height:12px;transform:scaleX(-1)"></div><span class="mk-badge" style="align-self:flex-start;background:var(--mk-a50);color:var(--mk-amber)">기타소득</span></div><div class="mk-col" style="gap:3px;align-items:flex-end"><b style="font-size:14px">1,000,000원</b><span style="font-size:11px;color:var(--mk-g600)">원천세 33,000원</span></div></div><img alt="" class="mk-ic" src="images/app/x-sm.svg" style="width:16px;height:16px;padding:1.6px"></div><div style="height:1px;background:var(--mk-g100)"></div><div style="display:flex;gap:20px;align-items:center"><div class="mk-row" style="flex:1"><div class="mk-col" style="gap:8px"><div style="display:flex;gap:4px;align-items:center"><b style="font-size:14px">박지훈</b><img alt="" class="mk-ic" src="images/app/chevron-sm.svg" style="width:12px;height:12px;transform:scaleX(-1)"></div><span class="mk-badge" style="align-self:flex-start;background:var(--mk-t50);color:var(--mk-teal)">사업소득</span></div><div class="mk-col" style="gap:3px;align-items:flex-end"><b style="font-size:14px">800,000원</b><span style="font-size:11px;color:var(--mk-g600)">원천세 26,400원</span></div></div><img alt="" class="mk-ic" src="images/app/x-sm.svg" style="width:16px;height:16px;padding:1.6px"></div><div style="height:1px;background:var(--mk-g100)"></div><div style="display:flex;gap:20px;align-items:center"><div class="mk-row" style="flex:1"><div class="mk-col" style="gap:8px"><div style="display:flex;gap:4px;align-items:center"><b style="font-size:14px">최유나</b><img alt="" class="mk-ic" src="images/app/chevron-sm.svg" style="width:12px;height:12px;transform:scaleX(-1)"></div><span class="mk-badge" style="align-self:flex-start;background:var(--mk-t50);color:var(--mk-teal)">사업소득</span></div><div class="mk-col" style="gap:3px;align-items:flex-end"><b style="font-size:14px">500,000원</b><span style="font-size:11px;color:var(--mk-g600)">원천세 44,000원</span></div></div><img alt="" class="mk-ic" src="images/app/x-sm.svg" style="width:16px;height:16px;padding:1.6px"></div></div>
+   <div class="mk-btn mk-soft" style="height:48px;font-size:15px">소득자 추가</div>
+  </div>
+ </div>
+ <div class="mk-ab" style="left:0;top:600px;width:375px"><div class="mk-fade" style="position:relative"></div>
+  <div style="background:#fff;padding:0 20px 20px;display:flex;flex-direction:column;gap:10px">
+   <div style="border:1px solid #E5E7EB;border-radius:14px;padding:12px 20px;display:flex;flex-direction:column;gap:4px;line-height:normal">
+    <div class="mk-row" style="font-weight:700;font-size:17px;color:#111827"><span>총 납부세액</span><span>185,180원</span></div>
+    <div style="display:flex;gap:6px;justify-content:flex-end;align-items:center;font-size:13px;color:#9F9F9F"><span>국세 81,000원</span><img alt="" class="mk-ic" src="images/app/plus-sm.svg" style="width:8px;height:8px"><span>지방세 780원</span></div>
+   </div>
+   <div class="mk-btn">다음</div>
+  </div>
+ </div>
+ <div class="mk-ab" style="left:0;bottom:0;width:375px;height:34px"><i class="mk-home-ind"></i></div>
+</div></div></div></div></div></figure>
         </div>
         <div class="step">
           <span class="n">3</span>
           <h3>세금 확인 후 신고</h3>
           <p>이번 달 낼 세금을 바로 보여드려요. 확인 후 신고 버튼을 누르면 홈택스에 접수돼요.</p>
-          <figure class="slot step-slot" style="--w:420;--h:660"><img src="images/step-3.png" alt="세금 확인 및 신고 화면" onerror="this.remove()"><figcaption><b>3단계 · 신고 화면</b><span>images/step-3.png</span><span>420 × 660px</span></figcaption></figure>
+          <figure class="slot step-slot mk-slot" style="--w:420;--h:660" data-mk="step-3" role="img" aria-label="간이 지급 명세서 제출 화면"><div class="mk-stage" aria-hidden="true"><div class="mk-f" style="width:210px;height:330px"><div class="mk-blob" style="width:160px;height:160px;background:var(--mk-sky);opacity:.5;left:-50px;top:200px"></div>
+  <div class="mk-ph" style="left:17px;top:28px;width:176px;height:360px;border-radius:32px;padding:5px"><div class="mk-scr" style="border-radius:27px"><div class="mk-app" style="zoom: 0.443;"><div class="mk-sbar"><img alt="" class="mk-n" src="images/app/notch.svg"><img alt="" class="mk-r" src="images/app/status-right.svg"><img alt="" class="mk-t" src="images/app/status-time.svg"></div>
+ <div class="mk-hdr"><img alt="" class="mk-ic" src="images/app/back.svg" style="width:24px;height:24px"><span class="mk-c">{메가커피(수서역점)} 원천세 신고</span><img alt="" class="mk-ic" src="images/app/close.svg" style="width:24px;height:24px;padding:1.6px"></div>
+ <div class="mk-ab mk-col" style="left:20px;top:116px;width:335px;gap:30px">
+  <div class="mk-col" style="gap:12px;font-weight:700"><span style="font-size:15px;color:var(--mk-blue)">2/2</span><span style="font-size:21px">간이 지급 명세서도 제출할게요</span></div>
+  <div class="mk-col" style="background:#F4F4F4;border-radius:16px;padding:20px 16px;width:332px;gap:13px">
+   <div style="display:flex;gap:8px;align-items:center"><span style="position:relative;width:20px;height:20px"><img alt="" class="mk-ic" src="images/app/info-circle.svg" style="width:20px;height:20px"><b style="position:absolute;left:8px;top:2px;font-size:13.6px;color:#3D67FC;line-height:normal">i</b></span><span style="font-weight:600;font-size:15px;color:#000;line-height:normal">왜 간이 지급 명세서도 제출해야하나요?</span></div>
+   <div style="padding-left:28px;font-size:15px;line-height:1.5;color:#707070">직원, 알바, 프리랜서에게 지급한 금액을 원천세 신고와 함께 국세청에 필수적으로 제출해야하는 명세서예요.</div>
+  </div>
+ </div>
+ <div class="mk-fade" style="top:654px"></div>
+ <div class="mk-ab" style="left:0;top:686px;width:375px;padding:20px;background:#fff"><div class="mk-btn">제출하기</div></div>
+ <div class="mk-ab" style="left:0;top:778px;width:375px;height:34px;background:#fff"><i class="mk-home-ind" style="background:var(--mk-g900)"></i></div>
+</div></div></div></div></div></figure>
         </div>
       </div>
     </div>
@@ -268,7 +385,36 @@ footer .copy{margin-top:16px}
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>받는 사람에게 실제 입금할 금액까지 표시</li>
           </ul>
         </div>
-        <div class="f-art"><figure class="slot" style="--w:760;--h:920"><img src="images/feature-calc.png" alt="세금 계산 결과 화면" onerror="this.remove()"><figcaption><b>세금 계산 화면</b><span>images/feature-calc.png</span><span>760 × 920px</span></figcaption></figure></div>
+        <div class="f-art"><figure class="slot mk-slot" style="--w:760;--h:920" data-mk="feature-calc" role="img" aria-label="소득자 등록 화면과 세금 자동 계산 결과"><div class="mk-stage" aria-hidden="true"><div class="mk-f" style="width:380px;height:460px">
+  <div class="mk-blob" style="width:240px;height:240px;background:var(--mk-sky);opacity:.55;left:-70px;top:260px"></div>
+  <div class="mk-blob" style="width:200px;height:200px;background:var(--mk-blue);opacity:.18;right:-50px;top:-30px"></div>
+  <div class="mk-ph" style="left:78px;top:54px;width:224px;height:480px;border-radius:40px;padding:6px"><div class="mk-scr" style="border-radius:34px"><div class="mk-app" style="zoom: 0.565;"><div class="mk-sbar"><img alt="" class="mk-n" src="images/app/notch.svg"><img alt="" class="mk-r" src="images/app/status-right.svg"><img alt="" class="mk-t" src="images/app/status-time.svg"></div>
+ <div class="mk-hdr" style="justify-content:flex-end"><span style="flex:1"></span><img alt="" class="mk-ic" src="images/app/close.svg" style="width:24px;height:24px;padding:1.6px"></div>
+ <div class="mk-ab" style="left:20px;top:116px;font-weight:700;font-size:21px">어떤 소득자 인가요?</div>
+ <div class="mk-ab mk-col" style="left:20px;top:171px;width:335px;gap:30px">
+  <div class="mk-col" style="gap:12px"><span class="mk-lbl">소득 구분</span><div class="mk-row"><div style="display:flex;gap:8px"><span class="mk-chip mk-on"><img alt="" class="mk-ic" src="images/app/chip-check-on.svg" style="width:16px;height:16px">사업 소득</span><span class="mk-chip mk-off"><img alt="" class="mk-ic" src="images/app/chip-check-off.svg" style="width:16px;height:16px">기타 소득</span></div><img alt="" class="mk-ic" src="images/app/info-mark.svg" style="width:24px;height:24px;margin-right:6px"></div></div>
+  <div class="mk-col" style="gap:12px"><span class="mk-lbl">소득자 국적</span><div style="display:flex;gap:8px"><span class="mk-chip mk-on"><img alt="" class="mk-ic" src="images/app/chip-check-on.svg" style="width:16px;height:16px">내국인</span><span class="mk-chip mk-off"><img alt="" class="mk-ic" src="images/app/chip-check-off.svg" style="width:16px;height:16px">외국인</span></div></div>
+  <div class="mk-col" style="gap:12px"><span class="mk-lbl">소득자 이름</span><div class="mk-inp">김제니</div></div>
+  <div class="mk-col" style="gap:12px"><span class="mk-lbl">소득자 주민 번호</span><div class="mk-inp">900101-123456</div></div>
+  <div class="mk-col" style="gap:12px"><span class="mk-lbl">업종 코드</span><div class="mk-inp" style="gap:12px;border:1px solid #F7F8FA"><span style="flex:1">기타 자영업 (940909)</span><img alt="" class="mk-ic" src="images/app/down.svg" style="width:24px;height:24px;transform:rotate(-90deg) scaleY(-1)"></div></div>
+  <div class="mk-col" style="gap:12px"><span class="mk-lbl">귀속월(일한 달)</span><div class="mk-inp">26.06</div></div>
+  <div class="mk-col" style="gap:12px"><span class="mk-lbl">지급월</span><div class="mk-inp">26.06</div></div>
+  <div class="mk-col" style="gap:13px"><span class="mk-lbl">세전 금액, 세후 금액인지 선택해 주세요.</span><div style="display:flex;gap:8px"><span class="mk-chip mk-on"><img alt="" class="mk-ic" src="images/app/chip-check-on.svg" style="width:16px;height:16px">세전 금액</span><span class="mk-chip mk-off"><img alt="" class="mk-ic" src="images/app/chip-check-off.svg" style="width:16px;height:16px">세후 금액</span></div></div>
+  <div class="mk-col" style="gap:12px"><span class="mk-lbl">지급액</span><div style="display:flex;gap:10px;align-items:flex-end"><div class="mk-inp" style="flex:1">185,130</div><b style="font-size:15px;line-height:normal">원</b></div></div>
+ </div>
+</div></div></div>
+  <div class="mk-glass" style="left:40px;top:206px;width:300px;padding:16px 18px;border-radius:18px">
+    <div class="mk-row"><span class="mk-eyebrow">자동 계산 결과</span><span class="mk-badge" style="background:var(--mk-t50);color:var(--mk-teal)">사업소득 3.3%</span></div>
+    <div class="mk-k3" style="margin-top:8px">김제니 님께 입금할 금액</div>
+    <div class="mk-k1" style="color:var(--mk-blue)">179,030원</div>
+    <div class="mk-hr" style="margin:12px 0 8px"></div>
+    <div class="mk-row mk-k3" style="padding:2px 0"><span>지급액</span><span style="color:var(--mk-g900);font-weight:500">185,130원</span></div>
+    <div class="mk-row mk-k3" style="padding:2px 0"><span>소득세 3%</span><span style="color:var(--mk-g900);font-weight:500">−5,550원</span></div>
+    <div class="mk-row mk-k3" style="padding:2px 0"><span>지방소득세</span><span style="color:var(--mk-g900);font-weight:500">−550원</span></div>
+    <div class="mk-k3" style="margin-top:6px;font-size:10.5px">10원 미만 절사까지 자동으로 반영했어요</div>
+  </div>
+  <img alt="" class="mk-obj" src="images/3d/calculator.png" style="right:12px;top:84px;width:80px;transform:rotate(8deg)">
+</div></div></figure></div>
       </div>
 
       <div class="feat flip">
@@ -282,7 +428,27 @@ footer .copy{margin-top:16px}
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>신고 후 접수증, 납부서를 다운로드 가능</li>
           </ul>
         </div>
-        <div class="f-art"><figure class="slot" style="--w:760;--h:920"><img src="images/feature-hometax.png" alt="홈택스 신고 내역 화면" onerror="this.remove()"><figcaption><b>신고 내역 화면</b><span>images/feature-hometax.png</span><span>760 × 920px</span></figcaption></figure></div>
+        <div class="f-art"><figure class="slot mk-slot" style="--w:760;--h:920" data-mk="feature-hometax" role="img" aria-label="신고 완료 화면과 홈택스 접수 결과"><div class="mk-stage" aria-hidden="true"><div class="mk-f" style="width:380px;height:460px">
+  <div class="mk-blob" style="width:240px;height:240px;background:var(--mk-sky);opacity:.55;right:-70px;top:250px"></div>
+  <div class="mk-blob" style="width:200px;height:200px;background:var(--mk-blue);opacity:.18;left:-50px;top:-30px"></div>
+  <div class="mk-ph" style="left:78px;top:58px;width:224px;height:480px;border-radius:40px;padding:6px"><div class="mk-scr" style="border-radius:34px"><div class="mk-app" style="zoom: 0.565;"><div class="mk-sbar"><img alt="" class="mk-n" src="images/app/notch.svg"><img alt="" class="mk-r" src="images/app/status-right.svg"><img alt="" class="mk-t" src="images/app/status-time.svg"></div>
+ <div class="mk-hdr"><span style="width:20px"></span><span class="mk-c">{메가커피(수서역점)} 원천세 신고</span><img alt="" class="mk-ic" src="images/app/close.svg" style="width:24px;height:24px;padding:1.6px"></div>
+ <div class="mk-ab mk-col" style="left:50%;top:50%;transform:translate(-50%,-50%);width:335px;gap:21px;align-items:center">
+  <img alt="" class="mk-ic" src="images/app/check-round.svg" style="width:60px;height:60px">
+  <div class="mk-col" style="gap:8px;text-align:center;width:100%"><span style="font-weight:700;font-size:21px">신고 완료</span><span style="font-size:17px">원천세 신고 및 간이 지급 명세서 신고를<br>완료했어요.</span></div>
+ </div>
+ <div class="mk-fade" style="top:654px"></div>
+ <div class="mk-ab" style="left:0;top:686px;width:375px;padding:20px;background:#fff"><div class="mk-btn">확인</div></div>
+ <div class="mk-ab" style="left:0;top:778px;width:375px;height:34px;background:#fff"><i class="mk-home-ind" style="background:var(--mk-g900)"></i></div>
+</div></div></div>
+  <div class="mk-glass" style="left:40px;top:340px;width:300px;padding:14px 18px;border-radius:18px">
+    <div class="mk-row"><span class="mk-eyebrow">6월 지급분 원천세</span><span class="mk-badge" style="background:var(--mk-gr50);color:#00962C">홈택스 접수 완료</span></div>
+    <div class="mk-hr" style="margin:10px 0 6px"></div>
+    <div class="mk-row" style="padding:3px 0"><span class="mk-k2" style="font-weight:600;font-size:12.5px">원천징수이행상황신고서</span><span class="mk-k3" style="color:var(--mk-blue);font-weight:600">접수증 · 납부서</span></div>
+    <div class="mk-row" style="padding:3px 0"><span class="mk-k2" style="font-weight:600;font-size:12.5px">간이지급명세서</span><span class="mk-k3" style="color:var(--mk-blue);font-weight:600">접수증</span></div>
+  </div>
+  <img alt="" class="mk-obj" src="images/3d/plane.png" style="left:18px;top:30px;width:88px">
+</div></div></figure></div>
       </div>
     </div>
   </section>
@@ -425,5 +591,6 @@ footer .copy{margin-top:16px}
   window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
 })();
 </script>
+<script id="mk-fit">(()=>{const fit=s=>{const f=s.firstElementChild;if(f&&f.offsetWidth)f.style.transform="scale("+s.clientWidth/f.offsetWidth+")"};const ro="ResizeObserver" in window?new ResizeObserver(es=>es.forEach(e=>fit(e.target))):null;document.querySelectorAll(".mk-stage").forEach(s=>{fit(s);ro&&ro.observe(s)});document.fonts&&document.fonts.ready.then(()=>document.querySelectorAll(".mk-stage").forEach(fit))})();</script>
 </body>
 </html>
