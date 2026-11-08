@@ -20,7 +20,10 @@ PNG 또는 JPG, 가로세로 비율은 맞추고 크기는 2배(레티나)로 �
 
 ## 현재 이미지 수정하기
 
-지금 들어 있는 이미지는 `_source/frames.html`에 HTML로 그려 둔 앱 화면에, Figma AI로 만든 3D 그래픽(`_source/3d/`)을 얹은 것입니다. 추천 대상 아이콘(`who-*.png`)은 `_source/3d/`의 그래픽을 64px로 줄인 것이라 렌더 스크립트가 덮어쓰지 않습니다. 문구나 금액을 바꾸려면 그 파일을 고친 뒤 아래 명령으로 다시 만드세요 (Node + Playwright 필요).
+- 앱 화면은 실제 서비스(oneclicktax.kr)의 디자인 토큰(색, 글자 크기, 모서리)과 문구로 390px 너비 기준으로 그린 뒤 폰 크기에 맞게 축소했습니다. 그래서 글자 크기 비율이 실제 앱과 같습니다.
+- 3D 그래픽(`_source/3d/`)은 Figma AI로 만든 글래스모피즘 아이콘입니다. 추천 대상 아이콘(`who-*.png`)은 이 그래픽을 64px로 줄인 것이라 렌더 스크립트가 덮어쓰지 않습니다.
+
+문구나 금액을 바꾸려면 `_source/frames.html`을 고친 뒤 아래 명령으로 다시 만드세요 (Node + Playwright 필요).
 
 ```bash
 node images/_source/render.js
